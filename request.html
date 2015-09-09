@@ -1,0 +1,1426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>request</title>
+<!-- 2015-09-08 周二 22:21 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">request</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. todo list</a>
+<ul>
+<li><a href="#sec-1-1">1.1. <span class="todo TODO">TODO</span> redirection and cookies</a></li>
+<li><a href="#sec-1-2">1.2. <span class="todo TODO">TODO</span> read test<sub>request</sub>.py</a></li>
+<li><a href="#sec-1-3">1.3. <span class="todo TODO">TODO</span> proxy</a></li>
+<li><a href="#sec-1-4">1.4. <span class="todo TODO">TODO</span> adapter</a></li>
+<li><a href="#sec-1-5">1.5. <span class="todo TODO">TODO</span> https</a></li>
+<li><a href="#sec-1-6">1.6. <span class="todo TODO">TODO</span> post a multipart-encoded files</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. grocery</a>
+<ul>
+<li><a href="#sec-2-1">2.1. Transfer-Encoding: chunked</a></li>
+<li><a href="#sec-2-2">2.2. when the request url has unacceptable char, urllib3 will rase</a></li>
+<li><a href="#sec-2-3">2.3. a sesion has two adapters,(each for http, https)</a></li>
+<li><a href="#sec-2-4">2.4. Redirection</a></li>
+<li><a href="#sec-2-5">2.5. r = requests.get('')</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. classes</a>
+<ul>
+<li><a href="#sec-3-1">3.1. Session</a></li>
+<li><a href="#sec-3-2">3.2. Request</a></li>
+<li><a href="#sec-3-3">3.3. PreparedRequest</a></li>
+<li><a href="#sec-3-4">3.4. Respose</a></li>
+<li><a href="#sec-3-5">3.5. HTTPAdapter</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4. urllib3</a>
+<ul>
+<li><a href="#sec-4-1">4.1. </a></li>
+<li><a href="#sec-4-2">4.2. </a></li>
+<li><a href="#sec-4-3">4.3. Verified HTTPS with SSL/TLS</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5. httpbin</a></li>
+<li><a href="#sec-6">6. bug</a>
+<ul>
+<li><a href="#sec-6-1">6.1. 编码错误</a></li>
+<li><a href="#sec-6-2">6.2. 参数描述错误</a></li>
+</ul>
+</li>
+<li><a href="#sec-7">7. test</a></li>
+<li><a href="#sec-8">8. TLS/SSL</a>
+<ul>
+<li><a href="#sec-8-1">8.1. Secure Transport Setup</a>
+<ul>
+<li><a href="#sec-8-1-1">8.1.1. establish TCP connecton</a></li>
+<li><a href="#sec-8-1-2">8.1.2. SSL Handshake</a></li>
+<li><a href="#sec-8-1-3">8.1.3. Certificate Validation</a></li>
+</ul>
+</li>
+<li><a href="#sec-8-2">8.2. 证书制作</a></li>
+<li><a href="#sec-8-3">8.3. example</a></li>
+</ul>
+</li>
+<li><a href="#sec-9">9. remark</a>
+<ul>
+<li><a href="#sec-9-1">9.1. </a>
+<ul>
+<li><a href="#sec-9-1-1">9.1.1. Session.request定义是：</a></li>
+</ul>
+</li>
+<li><a href="#sec-9-2">9.2. requests 对代理的处理</a></li>
+<li><a href="#sec-9-3">9.3. urllib3.ProxyManager如何处理代理</a></li>
+<li><a href="#sec-9-4">9.4. requests 对HTTPS的处理</a></li>
+<li><a href="#sec-9-5">9.5. 关于python的类变量和实例变量</a></li>
+<li><a href="#sec-9-6">9.6. 关于bound method 和  unbound method</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> todo list</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> <span class="todo TODO">TODO</span> redirection and cookies</h3>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> <span class="todo TODO">TODO</span> read test<sub>request</sub>.py</h3>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> <span class="todo TODO">TODO</span> proxy</h3>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> <span class="todo TODO">TODO</span> adapter</h3>
+</div>
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> <span class="todo TODO">TODO</span> https</h3>
+</div>
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> <span class="todo TODO">TODO</span> post a multipart-encoded files</h3>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> grocery</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="http://docs.python-requests.org/en/latest/">requests</a>  <a href="http://urllib3.readthedocs.org/en/latest/">urllib3</a>  httplib (lib/httplib.py)
+</p>
+</div>
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Transfer-Encoding: chunked</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+size\r\n data\r\n data\r\n &#x2026;  0\r\n\r\n(end)
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> when the request url has unacceptable char, urllib3 will rase</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+ConnectionError: ('Connection
+aborted.', BadStatusLine("''",))
+</p>
+
+<p>
+req = request.Request('GET', 'http://localhost:8000/?u=8')
+pre = pre.prepare()
+pre.url = u'http://localhost:8000/?u=8 8'
+request.session().send(pre)
+</p>
+
+<p>
+Traceback (most recent call last):
+  File "&lt;pyshell#30&gt;", line 1, in &lt;module&gt;
+    s.send(pr)
+  File "C:\Python27\lib\site-packages\requests\sessions.py", line 573, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Python27\lib\site-packages\requests\adapters.py", line 415, in send
+    raise ConnectionError(err, request=request)
+ConnectionError: ('Connection aborted.', BadStatusLine("''",))
+</p>
+<hr  />
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> a sesion has two adapters,(each for http, https)</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+a adpters has a PoolManager and maybe one or two ProxyManager(each for
+http, https)
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> Redirection</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+s = requests.session()
+r = s.get('http://httpbin.org/relative-redirect/2')
+</p>
+
+<p>
+resp1 = r.history<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup>
+resp2 = r.history<sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup>
+resp3 = r
+</p>
+
+<p>
+req1 = resp1.request
+req2 = resp2.request
+req3 = resp3.request
+</p>
+
+<p>
+[r for r in s.resolve<sub>redirects</sub>(resp1, req1)]
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> r = requests.get('<a href="http://www.baidu.com">http://www.baidu.com</a>')</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+create a Session s
+       mount adapters  <a href="https://">https://</a> <a href="http://">http://</a> to HTTPAdapter()
+</p>
+
+<p>
+Session send a request  s.request
+        create a Request req
+         send the request s.send
+              <b>adapter</b> send the request, return the Response r
+</p>
+<ul class="org-ul">
+<li>adapter *
+</li>
+</ul>
+<p>
+<b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b>**</b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b>
+CA certificate bundle
+try:
+    from certifi import where
+except ImportError:
+    def where():
+        """Return the preferred certificate bundle."""
+</p>
+<p>
+return os.path.join(os.path.dirname(<span class="underline"><span class="underline">file</span></span>), 'cacert.pem')
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> classes</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Session</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+    <span class="underline"><span class="underline">attrs</span></span> = [
+'headers', 'cookies', 'auth', 'proxies', 'hooks', 'params', 'verify',
+'cert', 'prefetch', 'adapters', 'stream', 'trust<sub>env'</sub>,
+'max<sub>redirects'</sub>,
+]
+</p>
+
+<p>
+METHOD:
+</p>
+
+<p>
+request :   prepare<sub>request</sub>   merge<sub>environment</sub><sub>setting</sub>  send
+*send : get<sub>adapter</sub>  resolve<sub>redirects</sub>
+*resolve<sub>redirects</sub>(generator) :  rebuild<sub>proxies</sub> rebuild<sub>auth</sub>  send (redirect=False)
+get<sub>adapter</sub>
+</p>
+
+<p>
+get
+post
+delete
+head
+put
+patch
+options
+</p>
+
+<p>
+merge<sub>environment</sub><sub>settings</sub>
+mount
+prepare<sub>request</sub>
+rebuild<sub>auth</sub>
+rebuild<sub>proxies</sub>
+close
+</p>
+
+<p>
+COOKIES:
+</p>
+<ol class="org-ol">
+<li>self.cookies = cookiejar<sub>from</sub><sub>dict</sub>({})
+</li>
+<li>cookies (a param)
+</li>
+</ol>
+
+<p>
+prepare<sub>request</sub>
+         merge<sub>cookies</sub> self.cookies, cookies (param),  RequestsCookieJar()
+</p>
+
+
+<p>
+send
+         extract<sub>cookies</sub><sub>to</sub><sub>jar</sub>(self.cookies,  request, resp.raw)
+</p>
+
+
+<p>
+resolve<sub>redirects</sub>
+         extract<sub>cookies</sub><sub>to</sub><sub>jar</sub>(prepare<sub>request</sub>.<sub>cookies</sub>, req, resp.raw
+         prepared<sub>request</sub>.<sub>cookies</sub>.update(self.cookies)
+         prepared<sub>request</sub>.prepare<sub>cookies</sub>(prepared<sub>request</sub>.<sub>cookies</sub>)
+</p>
+
+
+<p>
+ps :      send also invocate Respose.content
+</p>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Request</h3>
+</div>
+
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> PreparedRequest</h3>
+</div>
+
+
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> Respose</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+content (in bytes)
+text    (in unicode)
+json 
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3-5" class="outline-3">
+<h3 id="sec-3-5"><span class="section-number-3">3.5</span> HTTPAdapter</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+send()
+      conn = sellf.get<sub>connection</sub>()
+      resp = conn.urlopen()
+      low<sub>conn</sub> = conn.<sub>get</sub><sub>conn</sub>
+      low<sub>conn</sub>.send()
+      build<sub>response</sub>()
+</p>
+
+<p>
+build<sub>response</sub>()
+</p>
+
+<p>
+METHOD
+      init<sub>poolmanager</sub>
+</p>
+
+<p>
+send : get<sub>connection</sub>  cert<sub>verify</sub>  request<sub>url</sub>
+          add<sub>headers</sub>   build<sub>response</sub>
+</p>
+
+<p>
+get<sub>connection</sub> : proxy<sub>manager</sub><sub>for</sub>
+</p>
+
+<p>
+add<sub>headers</sub>
+build<sub>response</sub>
+cert<sub>verify</sub>
+close
+</p>
+
+
+
+<p>
+proxy<sub>headers</sub>
+proxy<sub>manager</sub><sub>for</sub>
+request<sub>url</sub>
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> urllib3</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+<b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b>**</b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b>
+import urllib3
+</p>
+
+<p>
+http = urllib3.PoolManager()
+</p>
+
+<p>
+r = http.request('GET', 'http://google.com/')
+</p>
+
+<p>
+print r.status,r.headers, r.data
+<b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b>**</b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b>
+</p>
+
+
+<p>
+PoolManager   (a collection of ConnectionPool objects.)
+ProxyManager      
+</p>
+
+<p>
+ConnectionPool (a pool of connections to a single host .
+                       is  composed of a collection of httplib.HTTPConnection objects.)
+</p>
+
+<p>
+Timeout
+Retry
+Stream
+</p>
+</div>
+
+
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> </h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+PoolManager，proxyManager中的pools类似字典，以(scheme, host, port)为key，
+根据scheme的不同，对应值为HTTPConnection和HTTPSConnection.
+</p>
+
+<p>
+主要的方法有:
+connection<sub>from</sub><sub>host</sub>(self, host, port=None, scheme='http')
+PoolManager直接根据(scheme,host,port)从pools取出ConnectPool，如
+果没有就创建一个新的
+proxyManager重写了该方法，
+对scheme=https直接使用(scheme, host, port),
+对scheme=http使用(porxy.scheme, proxy.host, porxy.port)
+</p>
+
+<p>
+_new<sub>pool</sub>(self, scheme, host, port)
+</p>
+
+
+<p>
+urlopen(self, method, url, redirect=True, **kw)
+调用connect<sub>from</sub><sub>host获得ConnectionPool，再调用ConnectionPool</sub>
+和它同名的方法urlopen
+并对重定向做了一些处理(requests没有使用)
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> </h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+HTTP(S)ConnectionPool
+维持一个由HTTP(S)Connection组成的pool，一个thread-safe的队列，其中
+每个Conneciton完全一样
+</p>
+
+
+<p>
+HTTPConnectionPool维持代理信息， 但HTTPConnectPool不对代理做任何处
+理
+HTTPSConnectionPool在生成新的Connection时，以代理的主机名和端口作为
+参数 ConnectionCls(proxy.host, proxy.port)
+</p>
+
+
+<p>
+urlopen调用httplib.Connection.request 和 getresponse
+如何有代理，调用self.<sub>prepare</sub><sub>proxy</sub>()
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> Verified HTTPS with SSL/TLS</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+http = urllib3.PoolManager(
+ cert<sub>reqs</sub>='CERT<sub>REQUIRED'</sub>, # Force certificate check.
+ ca<sub>certs</sub>=certifi.where(),  # Path to the Certifi bundle.
+ )
+</p>
+
+<p>
+ca<sub>carts</sub> = DEFAULT<sub>CA</sub><sub>BUNDLE</sub><sub>PATH</sub> = certs.where() # requests/cert.py
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> httpbin</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+pip install httpbin
+pyhon -m httpbin.core
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> bug</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> 编码错误</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+r = requests.get('http://www.baidu.com')
+print r.text
+</p>
+
+<p>
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+UnicodeEncodeError: 'gbk' codec can't encode character u'\xbb' in position 23594
+</p>
+<pre class="example">
+illegal multibyte sequence
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> 参数描述错误</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+requests/adapters.py
+</p>
+<hr  />
+<p>
+def proxy<sub>headers</sub>(self, proxy):
+        """Returns a dictionary of the headers to add to any request sent
+        through a proxy. This works with urllib3 magic to ensure that they are
+        correctly sent to the proxy, rather than in a tunnelled request if
+        CONNECT is being used.
+</p>
+
+<p>
+This should not be called from user code, and is only exposed for use
+when subclassing the
+</p>
+<p>
+:class:`HTTPAdapter &lt;requests.adapters.HTTPAdapter&gt;`.
+</p>
+
+<p>
+:param proxies: The url of the proxy being used for this request.
+</p>
+<p>
+:param kwargs: Optional additional keyword arguments.
+"""
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> test</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+python  test<sub>requests</sub>.py   commit 9bbab338fdbb562b923ba2d8a80f0bfba697fa41
+<code>====================================================================</code>
+ERROR: test<sub>auth</sub><sub>is</sub><sub>stripped</sub><sub>on</sub><sub>redirect</sub><sub>off</sub><sub>host</sub> (<span class="underline"><span class="underline">main</span></span>.RequestsTestCase)
+</p>
+<hr  />
+<p>
+Traceback (most recent call last):
+  File "test<sub>requests</sub>.py", line 983, in test<sub>auth</sub><sub>is</sub><sub>stripped</sub><sub>on</sub><sub>redirect</sub><sub>off</sub><sub>ho</sub>
+st
+    auth=('user', 'pass'),
+  File "C:\emacs\git\requests\requests\api.py", line 69, in get
+    return request('get', url, params=params, **kwargs)
+  File "C:\emacs\git\requests\requests\api.py", line 50, in request
+    response = session.request(method=method, url=url, **kwargs)
+  File "C:\emacs\git\requests\requests\sessions.py", line 465, in request
+    resp = self.send(prep, **send<sub>kwargs</sub>)
+  File "C:\emacs\git\requests\requests\sessions.py", line 594, in send
+    history = [resp for resp in gen] if allow<sub>redirects</sub> else []
+  File "C:\emacs\git\requests\requests\sessions.py", line 196, in resolve<sub>redire</sub>
+cts
+    **adapter<sub>kwargs</sub>
+  File "C:\emacs\git\requests\requests\sessions.py", line 573, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\emacs\git\requests\requests\adapters.py", line 412, in send
+    raise ConnectionError(err, request=request)
+ConnectionError: ('Connection aborted.', error(10060, ''))
+</p>
+
+<p>
+<code>====================================================================</code>
+ERROR: test<sub>different</sub><sub>encodings</sub><sub>dont</sub><sub>break</sub><sub>post</sub> (<span class="underline"><span class="underline">main</span></span>.RequestsTestCase)
+</p>
+<hr  />
+<p>
+Traceback (most recent call last):
+  File "test<sub>requests</sub>.py", line 501, in test<sub>different</sub><sub>encodings</sub><sub>dont</sub><sub>break</sub><sub>post</sub>
+</p>
+
+<p>
+    files={'file': ('test<sub>requests</sub>.py', open(<span class="underline"><span class="underline">file</span></span>, 'rb'))})
+  File "C:\emacs\git\requests\requests\api.py", line 109, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "C:\emacs\git\requests\requests\api.py", line 50, in request
+    response = session.request(method=method, url=url, **kwargs)
+  File "C:\emacs\git\requests\requests\sessions.py", line 465, in request
+    resp = self.send(prep, **send<sub>kwargs</sub>)
+  File "C:\emacs\git\requests\requests\sessions.py", line 605, in send
+    r.content
+  File "C:\emacs\git\requests\requests\models.py", line 734, in content
+    self.<sub>content</sub> = bytes().join(self.iter<sub>content</sub>(CONTENT<sub>CHUNK</sub><sub>SIZE</sub>)) or bytes
+()
+  File "C:\emacs\git\requests\requests\models.py", line 657, in generate
+    for chunk in self.raw.stream(chunk<sub>size</sub>, decode<sub>content</sub>=True):
+  File "C:\emacs\git\requests\requests\packages\urllib3\response.py", line 307,
+in stream
+    data = self.read(amt=amt, decode<sub>content</sub>=decode<sub>content</sub>)
+  File "C:\emacs\git\requests\requests\packages\urllib3\response.py", line 243,
+in read
+    data = self.<sub>fp</sub>.read(amt)
+  File "C:\Python27\lib\httplib.py", line 573, in read
+    s = self.fp.read(amt)
+  File "C:\Python27\lib\socket.py", line 380, in read
+    data = self.<sub>sock</sub>.recv(left)
+error: [Errno 10054]
+</p>
+
+<p>
+<code>====================================================================</code>
+ERROR: test<sub>mixed</sub><sub>case</sub><sub>scheme</sub><sub>acceptable</sub> (<span class="underline"><span class="underline">main</span></span>.RequestsTestCase)
+</p>
+<hr  />
+<p>
+Traceback (most recent call last):
+  File "test<sub>requests</sub>.py", line 137, in test<sub>mixed</sub><sub>case</sub><sub>scheme</sub><sub>acceptable</sub>
+    r = s.send(r.prepare())
+  File "C:\emacs\git\requests\requests\sessions.py", line 573, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\emacs\git\requests\requests\adapters.py", line 428, in send
+    raise SSLError(e, request=request)
+SSLError: EOF occurred in violation of protocol (<sub>ssl</sub>.c:581)
+</p>
+
+<p>
+<code>====================================================================</code>
+ERROR: test<sub>prepared</sub><sub>request</sub><sub>hook</sub> (<span class="underline"><span class="underline">main</span></span>.RequestsTestCase)
+</p>
+<hr  />
+<p>
+Traceback (most recent call last):
+  File "test<sub>requests</sub>.py", line 588, in test<sub>prepared</sub><sub>request</sub><sub>hook</sub>
+    resp = s.send(prep)
+  File "C:\emacs\git\requests\requests\sessions.py", line 573, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\emacs\git\requests\requests\adapters.py", line 412, in send
+    raise ConnectionError(err, request=request)
+ConnectionError: ('Connection aborted.', error(10060, ''))
+</p>
+
+<p>
+<code>====================================================================</code>
+ERROR: test<sub>request</sub><sub>ok</sub><sub>set</sub> (<span class="underline"><span class="underline">main</span></span>.RequestsTestCase)
+</p>
+<hr  />
+<p>
+Traceback (most recent call last):
+  File "test<sub>requests</sub>.py", line 459, in test<sub>request</sub><sub>ok</sub><sub>set</sub>
+    r = requests.get(httpbin('status', '404'))
+  File "C:\emacs\git\requests\requests\api.py", line 69, in get
+    return request('get', url, params=params, **kwargs)
+  File "C:\emacs\git\requests\requests\api.py", line 50, in request
+    response = session.request(method=method, url=url, **kwargs)
+  File "C:\emacs\git\requests\requests\sessions.py", line 465, in request
+    resp = self.send(prep, **send<sub>kwargs</sub>)
+  File "C:\emacs\git\requests\requests\sessions.py", line 573, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\emacs\git\requests\requests\adapters.py", line 412, in send
+    raise ConnectionError(err, request=request)
+ConnectionError: ('Connection aborted.', error(10060, ''))
+</p>
+
+<p>
+<code>====================================================================</code>
+ERROR: test<sub>unicode</sub><sub>method</sub><sub>name</sub> (<span class="underline"><span class="underline">main</span></span>.RequestsTestCase)
+</p>
+<hr  />
+<p>
+Traceback (most recent call last):
+  File "test<sub>requests</sub>.py", line 539, in test<sub>unicode</sub><sub>method</sub><sub>name</sub>
+    method=u('POST'), url=httpbin('post'), files=files)
+  File "C:\emacs\git\requests\requests\api.py", line 50, in request
+    response = session.request(method=method, url=url, **kwargs)
+  File "C:\emacs\git\requests\requests\sessions.py", line 465, in request
+    resp = self.send(prep, **send<sub>kwargs</sub>)
+  File "C:\emacs\git\requests\requests\sessions.py", line 605, in send
+    r.content
+  File "C:\emacs\git\requests\requests\models.py", line 734, in content
+    self.<sub>content</sub> = bytes().join(self.iter<sub>content</sub>(CONTENT<sub>CHUNK</sub><sub>SIZE</sub>)) or bytes
+()
+  File "C:\emacs\git\requests\requests\models.py", line 657, in generate
+    for chunk in self.raw.stream(chunk<sub>size</sub>, decode<sub>content</sub>=True):
+  File "C:\emacs\git\requests\requests\packages\urllib3\response.py", line 307,
+in stream
+    data = self.read(amt=amt, decode<sub>content</sub>=decode<sub>content</sub>)
+  File "C:\emacs\git\requests\requests\packages\urllib3\response.py", line 243,
+in read
+    data = self.<sub>fp</sub>.read(amt)
+  File "C:\Python27\lib\httplib.py", line 573, in read
+    s = self.fp.read(amt)
+  File "C:\Python27\lib\socket.py", line 380, in read
+    data = self.<sub>sock</sub>.recv(left)
+error: [Errno 10054]
+</p>
+
+<p>
+<code>====================================================================</code>
+ERROR: test<sub>expires</sub><sub>valid</sub><sub>str</sub> (<span class="underline"><span class="underline">main</span></span>.TestMorselToCookieExpires)
+Test case where we convert expires from string time.
+</p>
+<hr  />
+<p>
+Traceback (most recent call last):
+  File "test<sub>requests</sub>.py", line 1398, in test<sub>expires</sub><sub>valid</sub><sub>str</sub>
+    cookie = morsel<sub>to</sub><sub>cookie</sub>(morsel)
+  File "C:\emacs\git\requests\requests\cookies.py", line 425, in morsel<sub>to</sub><sub>cooki</sub>
+e
+    time.strptime(morsel['expires'], time<sub>template</sub>)) - time.timezone)
+OverflowError: mktime argument out of range
+</p>
+
+<hr  />
+<p>
+Ran 144 tests in 1028.720s
+</p>
+
+<p>
+FAILED (errors=7
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> TLS/SSL</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Transport Layer Security is  successor of Secure Sockets Layer
+</p>
+
+<p>
+TLS/SSL is a public/private key infrastructure with Digital
+signature and Digital Certificates technology involved.
+</p>
+</div>
+
+<div id="outline-container-sec-8-1" class="outline-3">
+<h3 id="sec-8-1"><span class="section-number-3">8.1</span> Secure Transport Setup</h3>
+<div class="outline-text-3" id="text-8-1">
+</div><div id="outline-container-sec-8-1-1" class="outline-4">
+<h4 id="sec-8-1-1"><span class="section-number-4">8.1.1</span> establish TCP connecton</h4>
+</div>
+<div id="outline-container-sec-8-1-2" class="outline-4">
+<h4 id="sec-8-1-2"><span class="section-number-4">8.1.2</span> SSL Handshake</h4>
+<div class="outline-text-4" id="text-8-1-2">
+<p>
+Exchange protocol version numbers
+Select a cipher that each side knows
+Authenticate the identity of each side
+Generate temporary session keys to encrypt the channel
+</p>
+</div>
+</div>
+<div id="outline-container-sec-8-1-3" class="outline-4">
+<h4 id="sec-8-1-3"><span class="section-number-4">8.1.3</span> Certificate Validation</h4>
+<div class="outline-text-4" id="text-8-1-3">
+<p>
+认证过程是可选的，双向的。一般情况，客户端会对服务器端证书进行认
+证，过程如下:
+   Date check  检查证书是否过期
+   Signer trust check  判断证书的签发者是否可信（浏览器预装了受信的证书）
+   Signature check  检查签名是否正确 hash(证书) == decode(signature, issuser-public-key)
+   Site identity check 检查服务器域名与证书上的域名是否一致
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-8-2" class="outline-3">
+<h3 id="sec-8-2"><span class="section-number-3">8.2</span> 证书制作</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+private key is created like this:
+  <b>openssl genrsa -out ryans-key.pem 2048</b>
+</p>
+
+<p>
+Certificates are public keys signed by a Certificate Authority orself-signed. 
+The first step to getting a certificate is to create a "Certificate
+Signing Request" (CSR) file.
+  <b>openssl req -new -sha256 -key ryans-key.pem -out ryans-csr.pem</b>
+</p>
+
+<p>
+To create a self-signed certificate with the CSR
+  <b>openssl x509 -req -in ryans-csr.pem -signkey ryans-key.pem -out ryans-cert.pem</b>
+</p>
+
+<p>
+Alternatively you can send the CSR to a Certificate Authority for
+signing.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-8-3" class="outline-3">
+<h3 id="sec-8-3"><span class="section-number-3">8.3</span> example</h3>
+<div class="outline-text-3" id="text-8-3">
+<p>
+参见nodejs的 api document(TLS,HTTPS) 和 python的Library Reference(ssl)
+</p>
+
+<p>
+node
+   tls.createServer(options[, secureConnectionListener])
+   tls.connect(options[, callback])
+     options.key 私钥
+     options.cert 证书
+     options.ca 受信证书
+     options.rejectUnauthorized 是否拒绝任何未被认证的连接
+</p>
+
+<p>
+python
+     ssl.wrap<sub>socket</sub>(sock, 
+                           keyfile=None, 
+                           certfile=None,
+                           server<sub>side</sub>=False, 
+                           cert<sub>reqs</sub>=CERT<sub>NONE</sub>(certificates ignored), CERT<sub>REQUIRED</sub> (required and validated).  
+                           ca<sub>certs</sub>=None, 
+                           &#x2026;)
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> remark</h2>
+<div class="outline-text-2" id="text-9">
+</div><div id="outline-container-sec-9-1" class="outline-3">
+<h3 id="sec-9-1"><span class="section-number-3">9.1</span> </h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+requests 的大部分功能都通过一个API解决 <b>Session.request</b> 
+</p>
+
+
+<p>
+这些参数一部分是为了构建请求request： 请求的方法method，url，query
+params，头headers，cookies；请求体 data，也可以是json格式，上传文件
+files，简单的HTTP认证auth.
+另一部分参数有超时控制timeout，代理proxies，SSL认证verify，cert，钩
+子函数hooks，是否允许重定向allow<sub>redirects，还有一个参数stream不知</sub>
+道干球用的
+</p>
+
+
+<p>
+而这个函数是Session的一个实例函数，Session就像他的名字指示的一样，
+模拟一个会话过程。一个session对象有着和 request 函数参数差不多的实
+例变量，由此来控制会话期间每个请求的默认行为。
+</p>
+
+<p>
+通过用户提供给request函数的参数先构造一个Request对象，在经过一些处
+理（参数的检查,合并一些session属性&#x2026;），生成preparedRequest对象，
+选取合适 的适配器（http or https）发送请求，返回Response.
+</p>
+</div>
+
+<div id="outline-container-sec-9-1-1" class="outline-4">
+<h4 id="sec-9-1-1"><span class="section-number-4">9.1.1</span> Session.request定义是：</h4>
+<div class="outline-text-4" id="text-9-1-1">
+<p>
+def request(self, method, url,
+     params=None,
+     data=None,
+     headers=None,
+     cookies=None,
+     files=None,
+     auth=None,
+     timeout=None,
+     allow<sub>redirects</sub>=True,
+     proxies=None,
+     hooks=None,
+     stream=None,
+     verify=None,
+     cert=None,
+     json=None):
+</p>
+
+<p>
+"""Constructs a :class:`Request &lt;Request&gt;`, prepares it and sends it.
+   Returns :class:`Response &lt;Response&gt;` object.
+</p>
+
+<p>
+:param method: method for the new :class:`Request` object.
+</p>
+<p>
+:param url: URL for the new :class:`Request` object.
+</p>
+<p>
+:param params: (optional) Dictionary or bytes to be sent in the query
+    string for the :class:`Request`.
+</p>
+<p>
+:param data: (optional) Dictionary or bytes to send in the body of the
+</p>
+<p>
+:class:`Request`.
+</p>
+<p>
+:param json: (optional) json to send in the body of the
+</p>
+<p>
+:class:`Request`.
+</p>
+<p>
+:param headers: (optional) Dictionary of HTTP Headers to send with the
+</p>
+<p>
+:class:`Request`.
+</p>
+<p>
+:param cookies: (optional) Dict or CookieJar object to send with the
+</p>
+<p>
+:class:`Request`.
+</p>
+<p>
+:param files: (optional) Dictionary of ``'filename': file-like-objects``
+    for multipart encoding upload.
+</p>
+<p>
+:param auth: (optional) Auth tuple or callable to enable
+    Basic/Digest/Custom HTTP Auth.
+</p>
+<p>
+:param timeout: (optional) How long to wait for the server to send
+    data before giving up, as a float, or a (`connect timeout, read
+    timeout &lt;user/advanced.html#timeouts&gt;`_) tuple.
+</p>
+<p>
+:type timeout: float or tuple
+</p>
+<p>
+:param allow<sub>redirects</sub>: (optional) Set to True by default.
+</p>
+<p>
+:type allow<sub>redirects</sub>: bool
+</p>
+<p>
+:param proxies: (optional) Dictionary mapping protocol to the URL of
+    the proxy.
+</p>
+<p>
+:param stream: (optional) whether to immediately download the response
+    content. Defaults to ``False``.
+</p>
+<p>
+:param verify: (optional) if ``True``, the SSL cert will be verified.
+    A CA<sub>BUNDLE</sub> path can also be provided.
+</p>
+<p>
+:param cert: (optional) if String, path to ssl client cert file (.pem).
+    If Tuple, ('cert', 'key') pair.
+"""
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-9-2" class="outline-3">
+<h3 id="sec-9-2"><span class="section-number-3">9.2</span> requests 对代理的处理</h3>
+<div class="outline-text-3" id="text-9-2">
+<p>
+直接将proxies参数传给adapter，由adapter使用urllib3.ProxyManager完
+成后续工作
+</p>
+
+<p>
+adapter.send(request, proxies)
+    conn = adapter.get<sub>connection</sub>(request.url, proxies)
+    url = adapter.request<sub>url</sub>(request, proxies)
+    resp = conn.urlopen(request.method, url)
+</p>
+
+<p>
+两种情况
+s = requests.session()
+s.proxies = {'http': '127.0.0.1:8000', 'https': '127.0.0.1:8000'}
+s.get('http://www.google.com/t')
+s.get('https://www.google.com/ts')
+</p>
+
+
+<p>
+代理
+ import socket
+ sock = socket.socket()
+ sock.bind(('127.0.0.1',8000))
+ sock.listen(5)
+ while 1:
+     r,_ = sock.accept()
+     print r.recv(65536)
+     r.sendall('HTTP/1.0 200 OK\r\n\r\nHello World\r\n')
+     r.close()
+</p>
+
+<p>
+18832691616
+</p>
+
+<p>
+Question:
+httplib.HTTPConnection        支持CONNECT tunnel
+urllib3.HTTPConnection         
+urllib3.HTTPConnectionPool
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-9-3" class="outline-3">
+<h3 id="sec-9-3"><span class="section-number-3">9.3</span> urllib3.ProxyManager如何处理代理</h3>
+<div class="outline-text-3" id="text-9-3">
+<p>
+&gt;&gt;&gt; proxy = urllib3.ProxyManager('http://localhost:3128/')
+&gt;&gt;&gt; r1 = proxy.request('GET', 'http://google.com/')
+&gt;&gt;&gt; r2 = proxy.request('GET', 'http://httpbin.org/')
+&gt;&gt;&gt; len(proxy.pools)
+1
+&gt;&gt;&gt; r3 = proxy.request('GET', 'https://httpbin.org/')
+&gt;&gt;&gt; r4 = proxy.request('GET', 'https://twitter.com/')
+&gt;&gt;&gt; len(proxy.pools)
+3
+</p>
+
+
+<p>
+目的是http的，返回一个
+HTTPConnectPool(proxy.host, proxy.port, connection<sub>pool</sub><sub>kw</sub>)
+并且发送请求时使用full URL
+</p>
+
+<p>
+目的是https的，返回一个
+HTTPSConnectPool(dest.host, dest.port, connection<sub>pool</sub><sub>kw</sub>)
+connect<sub>pool</sub><sub>kw包含代理信息</sub>
+VerifiedHTTPSConnect会调用<sub>tunnel使用代理</sub>
+注意：httplib.HTTPSConnection中 self.<sub>tunnel</sub><sub>host</sub> 指的是目的服务器，而
+self.host指的是代理服务器
+</p>
+
+<p>
+def connection<sub>from</sub><sub>host</sub>(self, host, port=None, scheme='http'):
+       if scheme == "https":
+           return super(ProxyManager, self).connection<sub>from</sub><sub>host</sub>(
+               host, port, scheme)
+</p>
+
+<p>
+return super(ProxyManager, self).connection<sub>from</sub><sub>host</sub>(
+    self.proxy.host, self.proxy.port, self.proxy.scheme)
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-9-4" class="outline-3">
+<h3 id="sec-9-4"><span class="section-number-3">9.4</span> requests 对HTTPS的处理</h3>
+<div class="outline-text-3" id="text-9-4">
+<p>
+与HTTPS相关的参数有verify，cert
+</p>
+
+<p>
+cert是客户端证书，不常用
+</p>
+
+<p>
+verify的默认值是True，表示对服务器的证书进行认证，受信证书(CA)使用默认
+值 DEFAULT<sub>CA</sub><sub>BUNDLE</sub><sub>PATH</sub>(requests/cacert.pem)
+</p>
+
+<p>
+verify的值为False，表示不对服务器证书进行认证，等于把ssl.wrap<sub>socket的</sub>
+参数cert<sub>reqs设为ssl</sub>.CERT<sub>NONE</sub>
+</p>
+
+<p>
+verify的值还可以是路径，表示对服务器的证书进行验证，并且受信证书(CA)使
+用该路径指定的证书文件
+</p>
+
+<p>
+VerifiedHTTPSConnection
+对httplib.HTTPSConnection.connect方法进行了重写，使用ssl&#x2026;&#x2026;
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-9-5" class="outline-3">
+<h3 id="sec-9-5"><span class="section-number-3">9.5</span> 关于python的类变量和实例变量</h3>
+<div class="outline-text-3" id="text-9-5">
+<p>
+类变量定义在所有方法之外，被所有实例对象所共享。但是一旦实例对象直
+接对类变量修改或赋值，或者说实例对象创建了一个与类变量同名的实例变
+量，这样就把类变量给覆盖了
+</p>
+
+<p>
+class Dog:
+</p>
+
+<p>
+kind = 'canine'         # class variable shared by all instances
+</p>
+
+<p>
+def _<sub>init</sub>_<sub>(self, name)</sub>:
+    self.name = name    # instance variable unique to each instance
+</p>
+
+<p>
+&gt;&gt;&gt; d = Dog('Fido')
+&gt;&gt;&gt; e = Dog('Buddy')
+</p>
+
+<p>
+&gt;&gt;&gt; print d.kind, e.kind
+canine canine
+</p>
+
+<p>
+&gt;&gt;&gt; e.kind = 'E'
+&gt;&gt;&gt; Dog.kind = "wowo"
+</p>
+
+<p>
+&gt;&gt;&gt; print d.kind, e.kind
+wowo E
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-9-6" class="outline-3">
+<h3 id="sec-9-6"><span class="section-number-3">9.6</span> 关于bound method 和  unbound method</h3>
+<div class="outline-text-3" id="text-9-6">
+<p>
+在类中定义的函数是 unbound method，实例化对象后，这个方法成为这个对象
+的bound method. 方法调用时，从类中搜索.
+</p>
+
+<p>
+&gt;&gt;&gt; class T:
+        def f(self):
+                print 'Hello World'
+</p>
+
+<p>
+&gt;&gt;&gt; t = T()
+</p>
+
+<p>
+&gt;&gt;&gt; T.f
+&lt;unbound method T.f&gt;
+</p>
+
+<p>
+&gt;&gt;&gt; t.f
+&lt;bound method T.f of &lt;_<sub>main</sub>__.T instance at 0x02780E18&gt;&gt;
+</p>
+
+<p>
+&gt;&gt;&gt; t.f()
+Hello World
+</p>
+
+<p>
+&gt;&gt;&gt; def f(self):
+        print 'FUCK'
+</p>
+
+
+<p>
+&gt;&gt;&gt; T.f = f
+</p>
+
+<p>
+&gt;&gt;&gt; t.f()
+FUCK
+</p>
+
+
+<p>
+将一个函数变为bound method，只需要调用函数对象的的_<sub>get</sub>_<sub>方法</sub>
+</p>
+
+<p>
+&gt;&gt;&gt; t.g = f._<sub>get</sub>_<sub>(t)</sub>
+&gt;&gt;&gt; t.g()
+FUCK
+</p>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p>DEFINITION NOT FOUND.</p></div>
+
+<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p>DEFINITION NOT FOUND.</p></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="date">Created: 2015-09-08 周二 22:21</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
